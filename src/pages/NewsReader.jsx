@@ -76,14 +76,41 @@ const NewsReader = () => {
 
                     {/* --- RESULT CARD --- */}
                     {news && (
-                        <div className="mt-8 bg-gradient-to-br from-white/10 to-white/5 rounded-xl p-6 
-                          shadow-inner border border-white/20 text-white">
-                            <h3 className="text-2xl font-semibold mb-3 flex items-center gap-2">
-                                🧩 {news.title || 'Summarized News'}
+                        <div className="mt-8 bg-white/10 rounded-xl p-6 border border-white/20 text-white">
+
+                            {/* TITLE */}
+                            <h3 className="text-3xl font-bold mb-4 flex items-center gap-2">
+                                📰 {news.title}
                             </h3>
-                            <p className="text-white/90 leading-relaxed">{news.summary}</p>
+
+                            {/* SUMMARY */}
+                            <p className="text-white/90 mb-6 leading-relaxed">
+                                {news.summary}
+                            </p>
+
+                            {/* SENTIMENT */}
+                            <div className="mb-4">
+                                <p className="font-semibold text-lg">
+                                    😊 Sentiment:
+                                    <span className="ml-2 text-blue-300">{news.sentiment.label}</span>
+                                </p>
+                                <p className="text-white/70">Confidence: {news.sentiment.score}</p>
+                            </div>
+
+                            {/* CATEGORY */}
+                            <div className="mb-3">
+                                <p className="font-semibold text-lg">
+                                    🏷️ Category Detected:
+                                    <span className="ml-2 text-purple-300">{news.category.category}</span>
+                                </p>
+                                <p className="text-white/70">
+                                    Confidence: {news.category.confidence}
+                                </p>
+                            </div>
+
                         </div>
                     )}
+
 
                     {/* --- TOOLKIT BUTTON --- */}
                     <div className="mt-10 text-center">
